@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { CSSReset } from "../src/components/CSSReset";
 import Menu from "../src/components/Menu";
 import { StyledTimeline } from "../src/components/Timeline";
+// import { StyledBanner } from "../src/components/Banner"
 
 function HomePage() {
     const estilosHomePage = { 
@@ -18,6 +19,8 @@ function HomePage() {
 
             <Menu />
 
+            <Banner />
+
             <Header />
 
             <Timeline playlists={config.playlists} />
@@ -28,14 +31,6 @@ function HomePage() {
 }
 
 export default HomePage
-
-// function Menu() {
-//     return (
-//         <div>
-//             Menu
-//         </div>
-//     )
-// }
 
 const StyledHeader = styled.div`
     img {
@@ -52,10 +47,10 @@ const StyledHeader = styled.div`
         gap: 16px;
     }
 `
+
 function Header() {
     return (
         <StyledHeader>
-            {/* <img src="banner" /> */}
 
             <section className="user-info">
                 <img src={`https://github.com/${config.github}.png`} />
@@ -71,6 +66,24 @@ function Header() {
 
             </section>
         </StyledHeader>
+
+    )
+}
+
+const StyledBanner = styled.div`
+    img {
+        width: 100%;
+        height: 300px;
+    }
+`
+
+function Banner() {
+    return (
+        <StyledBanner>
+            <div className="banner-info">
+                <img src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+            </div>
+        </StyledBanner>
     )
 }
 
@@ -81,8 +94,8 @@ function Timeline(props) {
         <StyledTimeline>
             {playlistNames.map((playlistNames) => {
                 const videos = props.playlists[playlistNames];
-                console.log(playlistNames);
-                console.log(videos);
+                // console.log(playlistNames);
+                // console.log(videos);
                 return (
                     <section>
                         <h2>{playlistNames}</h2>
